@@ -253,10 +253,10 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 31-May-2023 at 22:24:18 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 01-Jun-2023 at 13:28:29 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Summary</h2>
-    <p>21 tests ran in 0.05 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">15 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">6 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>35 tests ran in 0.07 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">25 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">10 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -270,106 +270,97 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::DrunkPolishCalculatorUnitTests::test_op_minus</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_minus[15-5-10.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">self = &lt;drunk_polish_calculator_test.DrunkPolishCalculatorUnitTests testMethod=test_op_minus&gt;<br/><br/>    def test_op_minus(self):<br/>        # Test cases for op_minus function<br/>        test_cases = [<br/>            (10, 5, 5.0),<br/>            (2, -3, 5.0),<br/>            (-4, 7, -11.0),<br/>            (-12, -5, -7.0),<br/>            (1.5, 2.5, -1)<br/>        ]<br/>        # when<br/>        for x, y, expected in test_cases:<br/>            result = op_minus(x, y)<br/>            # then<br/>&gt;           self.assertEqual(result, expected)<br/><span class="error">E           AssertionError: -5 != 5.0</span><br/><br/>drunk_polish_calculator_test.py:39: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x102327410&gt;, x = 15, y = 5, expected = 10.0<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;x, y, expected&quot;,<br/>        [<br/>            (15, 5, 10.0),<br/>            (2, -3, 5.0),<br/>            (-4, 7, -11.0),<br/>            (-12, -5, -7.0),<br/>            (1.5, 2.5, -1)<br/>        ],<br/>    )<br/>    def test_op_minus(self, x, y, expected):<br/>        # when<br/>        result = op_minus(x, y)<br/>        # then<br/>&gt;       assert result == expected<br/><span class="error">E       assert -10 == 10.0</span><br/><br/>drunk_polish_calculator_test.py:42: AssertionError<br/></div></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[10 5 /-2.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_minus[2--3-5.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x105175110&gt;, input_expression = &#x27;10 5 /&#x27;, expected_result = &#x27;2.0&#x27;<br/><br/>    @pytest.mark.parametrize(&quot;input_expression, expected_result&quot;, [<br/>        (&quot;5 5 +&quot;, &quot;10.0&quot;),<br/>        (&quot;10 -3 +&quot;, &quot;7.0&quot;),<br/>        (&quot;0 0 +&quot;, &quot;0.0&quot;),<br/>        (&quot;-2 5 +&quot;, &quot;3.0&quot;),<br/>        (&quot;10 5 -&quot;, &quot;5.0&quot;),<br/>        (&quot;2 -3 -&quot;, &quot;5.0&quot;),<br/>        (&quot;-4 7 -&quot;, &quot;-11.0&quot;),<br/>        (&quot;-12 -5 -&quot;, &quot;-7.0&quot;),<br/>        (&quot;10 5 *&quot;, &quot;50.0&quot;),<br/>        (&quot;10 5 /&quot;, &quot;2.0&quot;),<br/>        (&quot;6 2 *&quot;, &quot;12.0&quot;),<br/>        (&quot;3 5 *&quot;, &quot;15.0&quot;),<br/>        (&quot;12 4 /&quot;, &quot;3.0&quot;),<br/>        (&quot;2 3 + 4 *&quot;, &quot;14.0&quot;),<br/>        (&quot;8 2 / 4 +&quot;, &quot;8.0&quot;),<br/>        (&quot;10 2 + 3 *&quot;, &quot;16.0&quot;),<br/>    ])<br/>    def test_main_option(self, input_expression, expected_result):<br/>        with patch(&quot;sys.stdin&quot;, StringIO(input_expression)), patch(&quot;sys.stdout&quot;, StringIO()) as output:<br/>            runpy.run_path(&quot;/Users/borschevskyi/Hillel-Python-Pro/drunk_polish_calculator.py&quot;, run_name = &quot;__main__&quot;)<br/>            output.seek(0)<br/>            result = output.read().strip().split(&quot;:&quot;)[-1].strip()<br/>&gt;           assert result == expected_result<br/><span class="error">E           AssertionError: assert &#x27;0.5&#x27; == &#x27;2.0&#x27;</span><br/><span class="error">E             - 2.0</span><br/><span class="error">E             + 0.5</span><br/><br/>drunk_polish_calculator_test.py:112: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x102327590&gt;, x = 2, y = -3, expected = 5.0<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;x, y, expected&quot;,<br/>        [<br/>            (15, 5, 10.0),<br/>            (2, -3, 5.0),<br/>            (-4, 7, -11.0),<br/>            (-12, -5, -7.0),<br/>            (1.5, 2.5, -1)<br/>        ],<br/>    )<br/>    def test_op_minus(self, x, y, expected):<br/>        # when<br/>        result = op_minus(x, y)<br/>        # then<br/>&gt;       assert result == expected<br/><span class="error">E       assert -5 == 5.0</span><br/><br/>drunk_polish_calculator_test.py:42: AssertionError<br/></div></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[12 4 /-3.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_minus[-4-7--11.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x105175ad0&gt;, input_expression = &#x27;12 4 /&#x27;, expected_result = &#x27;3.0&#x27;<br/><br/>    @pytest.mark.parametrize(&quot;input_expression, expected_result&quot;, [<br/>        (&quot;5 5 +&quot;, &quot;10.0&quot;),<br/>        (&quot;10 -3 +&quot;, &quot;7.0&quot;),<br/>        (&quot;0 0 +&quot;, &quot;0.0&quot;),<br/>        (&quot;-2 5 +&quot;, &quot;3.0&quot;),<br/>        (&quot;10 5 -&quot;, &quot;5.0&quot;),<br/>        (&quot;2 -3 -&quot;, &quot;5.0&quot;),<br/>        (&quot;-4 7 -&quot;, &quot;-11.0&quot;),<br/>        (&quot;-12 -5 -&quot;, &quot;-7.0&quot;),<br/>        (&quot;10 5 *&quot;, &quot;50.0&quot;),<br/>        (&quot;10 5 /&quot;, &quot;2.0&quot;),<br/>        (&quot;6 2 *&quot;, &quot;12.0&quot;),<br/>        (&quot;3 5 *&quot;, &quot;15.0&quot;),<br/>        (&quot;12 4 /&quot;, &quot;3.0&quot;),<br/>        (&quot;2 3 + 4 *&quot;, &quot;14.0&quot;),<br/>        (&quot;8 2 / 4 +&quot;, &quot;8.0&quot;),<br/>        (&quot;10 2 + 3 *&quot;, &quot;16.0&quot;),<br/>    ])<br/>    def test_main_option(self, input_expression, expected_result):<br/>        with patch(&quot;sys.stdin&quot;, StringIO(input_expression)), patch(&quot;sys.stdout&quot;, StringIO()) as output:<br/>            runpy.run_path(&quot;/Users/borschevskyi/Hillel-Python-Pro/drunk_polish_calculator.py&quot;, run_name = &quot;__main__&quot;)<br/>            output.seek(0)<br/>            result = output.read().strip().split(&quot;:&quot;)[-1].strip()<br/>&gt;           assert result == expected_result<br/><span class="error">E           AssertionError: assert &#x27;0.3333333333333333&#x27; == &#x27;3.0&#x27;</span><br/><span class="error">E             - 3.0</span><br/><span class="error">E             + 0.3333333333333333</span><br/><br/>drunk_polish_calculator_test.py:112: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x102327850&gt;, x = -4, y = 7, expected = -11.0<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;x, y, expected&quot;,<br/>        [<br/>            (15, 5, 10.0),<br/>            (2, -3, 5.0),<br/>            (-4, 7, -11.0),<br/>            (-12, -5, -7.0),<br/>            (1.5, 2.5, -1)<br/>        ],<br/>    )<br/>    def test_op_minus(self, x, y, expected):<br/>        # when<br/>        result = op_minus(x, y)<br/>        # then<br/>&gt;       assert result == expected<br/><span class="error">E       assert 11 == -11.0</span><br/><br/>drunk_polish_calculator_test.py:42: AssertionError<br/></div></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[2 3 + 4 *-14.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_minus[-12--5--7.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x105175e10&gt;, input_expression = &#x27;2 3 + 4 *&#x27;, expected_result = &#x27;14.0&#x27;<br/><br/>    @pytest.mark.parametrize(&quot;input_expression, expected_result&quot;, [<br/>        (&quot;5 5 +&quot;, &quot;10.0&quot;),<br/>        (&quot;10 -3 +&quot;, &quot;7.0&quot;),<br/>        (&quot;0 0 +&quot;, &quot;0.0&quot;),<br/>        (&quot;-2 5 +&quot;, &quot;3.0&quot;),<br/>        (&quot;10 5 -&quot;, &quot;5.0&quot;),<br/>        (&quot;2 -3 -&quot;, &quot;5.0&quot;),<br/>        (&quot;-4 7 -&quot;, &quot;-11.0&quot;),<br/>        (&quot;-12 -5 -&quot;, &quot;-7.0&quot;),<br/>        (&quot;10 5 *&quot;, &quot;50.0&quot;),<br/>        (&quot;10 5 /&quot;, &quot;2.0&quot;),<br/>        (&quot;6 2 *&quot;, &quot;12.0&quot;),<br/>        (&quot;3 5 *&quot;, &quot;15.0&quot;),<br/>        (&quot;12 4 /&quot;, &quot;3.0&quot;),<br/>        (&quot;2 3 + 4 *&quot;, &quot;14.0&quot;),<br/>        (&quot;8 2 / 4 +&quot;, &quot;8.0&quot;),<br/>        (&quot;10 2 + 3 *&quot;, &quot;16.0&quot;),<br/>    ])<br/>    def test_main_option(self, input_expression, expected_result):<br/>        with patch(&quot;sys.stdin&quot;, StringIO(input_expression)), patch(&quot;sys.stdout&quot;, StringIO()) as output:<br/>            runpy.run_path(&quot;/Users/borschevskyi/Hillel-Python-Pro/drunk_polish_calculator.py&quot;, run_name = &quot;__main__&quot;)<br/>            output.seek(0)<br/>            result = output.read().strip().split(&quot;:&quot;)[-1].strip()<br/>&gt;           assert result == expected_result<br/><span class="error">E           AssertionError: assert &#x27;20.0&#x27; == &#x27;14.0&#x27;</span><br/><span class="error">E             - 14.0</span><br/><span class="error">E             + 20.0</span><br/><br/>drunk_polish_calculator_test.py:112: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x102327b10&gt;, x = -12, y = -5, expected = -7.0<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;x, y, expected&quot;,<br/>        [<br/>            (15, 5, 10.0),<br/>            (2, -3, 5.0),<br/>            (-4, 7, -11.0),<br/>            (-12, -5, -7.0),<br/>            (1.5, 2.5, -1)<br/>        ],<br/>    )<br/>    def test_op_minus(self, x, y, expected):<br/>        # when<br/>        result = op_minus(x, y)<br/>        # then<br/>&gt;       assert result == expected<br/><span class="error">E       assert 7 == -7.0</span><br/><br/>drunk_polish_calculator_test.py:42: AssertionError<br/></div></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[8 2 / 4 +-8.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_minus[1.5-2.5--1]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x105176150&gt;, input_expression = &#x27;8 2 / 4 +&#x27;, expected_result = &#x27;8.0&#x27;<br/><br/>    @pytest.mark.parametrize(&quot;input_expression, expected_result&quot;, [<br/>        (&quot;5 5 +&quot;, &quot;10.0&quot;),<br/>        (&quot;10 -3 +&quot;, &quot;7.0&quot;),<br/>        (&quot;0 0 +&quot;, &quot;0.0&quot;),<br/>        (&quot;-2 5 +&quot;, &quot;3.0&quot;),<br/>        (&quot;10 5 -&quot;, &quot;5.0&quot;),<br/>        (&quot;2 -3 -&quot;, &quot;5.0&quot;),<br/>        (&quot;-4 7 -&quot;, &quot;-11.0&quot;),<br/>        (&quot;-12 -5 -&quot;, &quot;-7.0&quot;),<br/>        (&quot;10 5 *&quot;, &quot;50.0&quot;),<br/>        (&quot;10 5 /&quot;, &quot;2.0&quot;),<br/>        (&quot;6 2 *&quot;, &quot;12.0&quot;),<br/>        (&quot;3 5 *&quot;, &quot;15.0&quot;),<br/>        (&quot;12 4 /&quot;, &quot;3.0&quot;),<br/>        (&quot;2 3 + 4 *&quot;, &quot;14.0&quot;),<br/>        (&quot;8 2 / 4 +&quot;, &quot;8.0&quot;),<br/>        (&quot;10 2 + 3 *&quot;, &quot;16.0&quot;),<br/>    ])<br/>    def test_main_option(self, input_expression, expected_result):<br/>        with patch(&quot;sys.stdin&quot;, StringIO(input_expression)), patch(&quot;sys.stdout&quot;, StringIO()) as output:<br/>            runpy.run_path(&quot;/Users/borschevskyi/Hillel-Python-Pro/drunk_polish_calculator.py&quot;, run_name = &quot;__main__&quot;)<br/>            output.seek(0)<br/>            result = output.read().strip().split(&quot;:&quot;)[-1].strip()<br/>&gt;           assert result == expected_result<br/><span class="error">E           AssertionError: assert &#x27;4.25&#x27; == &#x27;8.0&#x27;</span><br/><span class="error">E             - 8.0</span><br/><span class="error">E             + 4.25</span><br/><br/>drunk_polish_calculator_test.py:112: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x102327f10&gt;, x = 1.5, y = 2.5, expected = -1<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;x, y, expected&quot;,<br/>        [<br/>            (15, 5, 10.0),<br/>            (2, -3, 5.0),<br/>            (-4, 7, -11.0),<br/>            (-12, -5, -7.0),<br/>            (1.5, 2.5, -1)<br/>        ],<br/>    )<br/>    def test_op_minus(self, x, y, expected):<br/>        # when<br/>        result = op_minus(x, y)<br/>        # then<br/>&gt;       assert result == expected<br/><span class="error">E       assert 1.0 == -1</span><br/><br/>drunk_polish_calculator_test.py:42: AssertionError<br/></div></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[10 2 + 3 *-16.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[10 5 /-2.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x105176490&gt;, input_expression = &#x27;10 2 + 3 *&#x27;, expected_result = &#x27;16.0&#x27;<br/><br/>    @pytest.mark.parametrize(&quot;input_expression, expected_result&quot;, [<br/>        (&quot;5 5 +&quot;, &quot;10.0&quot;),<br/>        (&quot;10 -3 +&quot;, &quot;7.0&quot;),<br/>        (&quot;0 0 +&quot;, &quot;0.0&quot;),<br/>        (&quot;-2 5 +&quot;, &quot;3.0&quot;),<br/>        (&quot;10 5 -&quot;, &quot;5.0&quot;),<br/>        (&quot;2 -3 -&quot;, &quot;5.0&quot;),<br/>        (&quot;-4 7 -&quot;, &quot;-11.0&quot;),<br/>        (&quot;-12 -5 -&quot;, &quot;-7.0&quot;),<br/>        (&quot;10 5 *&quot;, &quot;50.0&quot;),<br/>        (&quot;10 5 /&quot;, &quot;2.0&quot;),<br/>        (&quot;6 2 *&quot;, &quot;12.0&quot;),<br/>        (&quot;3 5 *&quot;, &quot;15.0&quot;),<br/>        (&quot;12 4 /&quot;, &quot;3.0&quot;),<br/>        (&quot;2 3 + 4 *&quot;, &quot;14.0&quot;),<br/>        (&quot;8 2 / 4 +&quot;, &quot;8.0&quot;),<br/>        (&quot;10 2 + 3 *&quot;, &quot;16.0&quot;),<br/>    ])<br/>    def test_main_option(self, input_expression, expected_result):<br/>        with patch(&quot;sys.stdin&quot;, StringIO(input_expression)), patch(&quot;sys.stdout&quot;, StringIO()) as output:<br/>            runpy.run_path(&quot;/Users/borschevskyi/Hillel-Python-Pro/drunk_polish_calculator.py&quot;, run_name = &quot;__main__&quot;)<br/>            output.seek(0)<br/>            result = output.read().strip().split(&quot;:&quot;)[-1].strip()<br/>&gt;           assert result == expected_result<br/><span class="error">E           AssertionError: assert &#x27;36.0&#x27; == &#x27;16.0&#x27;</span><br/><span class="error">E             - 16.0</span><br/><span class="error">E             ? ^</span><br/><span class="error">E             + 36.0</span><br/><span class="error">E             ? ^</span><br/><br/>drunk_polish_calculator_test.py:112: AssertionError<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x10233c610&gt;, input_expression = &#x27;10 5 /&#x27;, expected_result = &#x27;2.0&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;input_expression, expected_result&quot;,<br/>        [<br/>            (&quot;5 5 +&quot;, &quot;10.0&quot;),<br/>            (&quot;10 -3 +&quot;, &quot;7.0&quot;),<br/>            (&quot;0 0 +&quot;, &quot;0.0&quot;),<br/>            (&quot;-2 5 +&quot;, &quot;3.0&quot;),<br/>            (&quot;10 5 -&quot;, &quot;5.0&quot;),<br/>            (&quot;-4 7 -&quot;, &quot;-11.0&quot;),<br/>            (&quot;-12 -5 -&quot;, &quot;-7.0&quot;),<br/>            (&quot;10 5 *&quot;, &quot;50.0&quot;),<br/>            (&quot;10 5 /&quot;, &quot;2.0&quot;),<br/>            (&quot;6 2 *&quot;, &quot;12.0&quot;),<br/>            (&quot;3 5 *&quot;, &quot;15.0&quot;),<br/>            (&quot;12 4 /&quot;, &quot;3.0&quot;),<br/>            (&quot;2 3 + 4 *&quot;, &quot;14.0&quot;),<br/>            (&quot;8 2 / 4 +&quot;, &quot;8.0&quot;),<br/>            (&quot;10 2 + 3 *&quot;, &quot;16.0&quot;),<br/>        ],<br/>    )<br/>    def test_main(self, input_expression, expected_result):<br/>        with patch(&quot;sys.stdin&quot;, StringIO(input_expression)), patch(<br/>            &quot;sys.stdout&quot;, StringIO()<br/>        ) as output:<br/>            runpy.run_path(<br/>                &quot;/Users/borschevskyi/Hillel-Python-Pro/drunk_polish_calculator.py&quot;,<br/>                run_name=&quot;__main__&quot;,<br/>            )<br/>            output.seek(0)<br/>            result = output.read().strip().split(&quot;:&quot;)[-1].strip()<br/>&gt;           assert result == expected_result<br/><span class="error">E           AssertionError: assert &#x27;0.5&#x27; == &#x27;2.0&#x27;</span><br/><span class="error">E             - 2.0</span><br/><span class="error">E             + 0.5</span><br/><br/>drunk_polish_calculator_test.py:109: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::DrunkPolishCalculatorUnitTests::test_errors</td>
+          <td class="col-result">Failed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[12 4 /-3.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x10233cf90&gt;, input_expression = &#x27;12 4 /&#x27;, expected_result = &#x27;3.0&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;input_expression, expected_result&quot;,<br/>        [<br/>            (&quot;5 5 +&quot;, &quot;10.0&quot;),<br/>            (&quot;10 -3 +&quot;, &quot;7.0&quot;),<br/>            (&quot;0 0 +&quot;, &quot;0.0&quot;),<br/>            (&quot;-2 5 +&quot;, &quot;3.0&quot;),<br/>            (&quot;10 5 -&quot;, &quot;5.0&quot;),<br/>            (&quot;-4 7 -&quot;, &quot;-11.0&quot;),<br/>            (&quot;-12 -5 -&quot;, &quot;-7.0&quot;),<br/>            (&quot;10 5 *&quot;, &quot;50.0&quot;),<br/>            (&quot;10 5 /&quot;, &quot;2.0&quot;),<br/>            (&quot;6 2 *&quot;, &quot;12.0&quot;),<br/>            (&quot;3 5 *&quot;, &quot;15.0&quot;),<br/>            (&quot;12 4 /&quot;, &quot;3.0&quot;),<br/>            (&quot;2 3 + 4 *&quot;, &quot;14.0&quot;),<br/>            (&quot;8 2 / 4 +&quot;, &quot;8.0&quot;),<br/>            (&quot;10 2 + 3 *&quot;, &quot;16.0&quot;),<br/>        ],<br/>    )<br/>    def test_main(self, input_expression, expected_result):<br/>        with patch(&quot;sys.stdin&quot;, StringIO(input_expression)), patch(<br/>            &quot;sys.stdout&quot;, StringIO()<br/>        ) as output:<br/>            runpy.run_path(<br/>                &quot;/Users/borschevskyi/Hillel-Python-Pro/drunk_polish_calculator.py&quot;,<br/>                run_name=&quot;__main__&quot;,<br/>            )<br/>            output.seek(0)<br/>            result = output.read().strip().split(&quot;:&quot;)[-1].strip()<br/>&gt;           assert result == expected_result<br/><span class="error">E           AssertionError: assert &#x27;0.3333333333333333&#x27; == &#x27;3.0&#x27;</span><br/><span class="error">E             - 3.0</span><br/><span class="error">E             + 0.3333333333333333</span><br/><br/>drunk_polish_calculator_test.py:109: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::DrunkPolishCalculatorUnitTests::test_op_divide</td>
+          <td class="col-result">Failed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[2 3 + 4 *-14.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x10233d2d0&gt;, input_expression = &#x27;2 3 + 4 *&#x27;, expected_result = &#x27;14.0&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;input_expression, expected_result&quot;,<br/>        [<br/>            (&quot;5 5 +&quot;, &quot;10.0&quot;),<br/>            (&quot;10 -3 +&quot;, &quot;7.0&quot;),<br/>            (&quot;0 0 +&quot;, &quot;0.0&quot;),<br/>            (&quot;-2 5 +&quot;, &quot;3.0&quot;),<br/>            (&quot;10 5 -&quot;, &quot;5.0&quot;),<br/>            (&quot;-4 7 -&quot;, &quot;-11.0&quot;),<br/>            (&quot;-12 -5 -&quot;, &quot;-7.0&quot;),<br/>            (&quot;10 5 *&quot;, &quot;50.0&quot;),<br/>            (&quot;10 5 /&quot;, &quot;2.0&quot;),<br/>            (&quot;6 2 *&quot;, &quot;12.0&quot;),<br/>            (&quot;3 5 *&quot;, &quot;15.0&quot;),<br/>            (&quot;12 4 /&quot;, &quot;3.0&quot;),<br/>            (&quot;2 3 + 4 *&quot;, &quot;14.0&quot;),<br/>            (&quot;8 2 / 4 +&quot;, &quot;8.0&quot;),<br/>            (&quot;10 2 + 3 *&quot;, &quot;16.0&quot;),<br/>        ],<br/>    )<br/>    def test_main(self, input_expression, expected_result):<br/>        with patch(&quot;sys.stdin&quot;, StringIO(input_expression)), patch(<br/>            &quot;sys.stdout&quot;, StringIO()<br/>        ) as output:<br/>            runpy.run_path(<br/>                &quot;/Users/borschevskyi/Hillel-Python-Pro/drunk_polish_calculator.py&quot;,<br/>                run_name=&quot;__main__&quot;,<br/>            )<br/>            output.seek(0)<br/>            result = output.read().strip().split(&quot;:&quot;)[-1].strip()<br/>&gt;           assert result == expected_result<br/><span class="error">E           AssertionError: assert &#x27;20.0&#x27; == &#x27;14.0&#x27;</span><br/><span class="error">E             - 14.0</span><br/><span class="error">E             + 20.0</span><br/><br/>drunk_polish_calculator_test.py:109: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::DrunkPolishCalculatorUnitTests::test_op_multiply</td>
+          <td class="col-result">Failed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[8 2 / 4 +-8.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x10233d610&gt;, input_expression = &#x27;8 2 / 4 +&#x27;, expected_result = &#x27;8.0&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;input_expression, expected_result&quot;,<br/>        [<br/>            (&quot;5 5 +&quot;, &quot;10.0&quot;),<br/>            (&quot;10 -3 +&quot;, &quot;7.0&quot;),<br/>            (&quot;0 0 +&quot;, &quot;0.0&quot;),<br/>            (&quot;-2 5 +&quot;, &quot;3.0&quot;),<br/>            (&quot;10 5 -&quot;, &quot;5.0&quot;),<br/>            (&quot;-4 7 -&quot;, &quot;-11.0&quot;),<br/>            (&quot;-12 -5 -&quot;, &quot;-7.0&quot;),<br/>            (&quot;10 5 *&quot;, &quot;50.0&quot;),<br/>            (&quot;10 5 /&quot;, &quot;2.0&quot;),<br/>            (&quot;6 2 *&quot;, &quot;12.0&quot;),<br/>            (&quot;3 5 *&quot;, &quot;15.0&quot;),<br/>            (&quot;12 4 /&quot;, &quot;3.0&quot;),<br/>            (&quot;2 3 + 4 *&quot;, &quot;14.0&quot;),<br/>            (&quot;8 2 / 4 +&quot;, &quot;8.0&quot;),<br/>            (&quot;10 2 + 3 *&quot;, &quot;16.0&quot;),<br/>        ],<br/>    )<br/>    def test_main(self, input_expression, expected_result):<br/>        with patch(&quot;sys.stdin&quot;, StringIO(input_expression)), patch(<br/>            &quot;sys.stdout&quot;, StringIO()<br/>        ) as output:<br/>            runpy.run_path(<br/>                &quot;/Users/borschevskyi/Hillel-Python-Pro/drunk_polish_calculator.py&quot;,<br/>                run_name=&quot;__main__&quot;,<br/>            )<br/>            output.seek(0)<br/>            result = output.read().strip().split(&quot;:&quot;)[-1].strip()<br/>&gt;           assert result == expected_result<br/><span class="error">E           AssertionError: assert &#x27;4.25&#x27; == &#x27;8.0&#x27;</span><br/><span class="error">E             - 8.0</span><br/><span class="error">E             + 4.25</span><br/><br/>drunk_polish_calculator_test.py:109: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::DrunkPolishCalculatorUnitTests::test_op_plus</td>
+          <td class="col-result">Failed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[10 2 + 3 *-16.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
+            <div class="log">self = &lt;drunk_polish_calculator_test.TestDrunkPolishCalculator object at 0x10233d950&gt;, input_expression = &#x27;10 2 + 3 *&#x27;, expected_result = &#x27;16.0&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;input_expression, expected_result&quot;,<br/>        [<br/>            (&quot;5 5 +&quot;, &quot;10.0&quot;),<br/>            (&quot;10 -3 +&quot;, &quot;7.0&quot;),<br/>            (&quot;0 0 +&quot;, &quot;0.0&quot;),<br/>            (&quot;-2 5 +&quot;, &quot;3.0&quot;),<br/>            (&quot;10 5 -&quot;, &quot;5.0&quot;),<br/>            (&quot;-4 7 -&quot;, &quot;-11.0&quot;),<br/>            (&quot;-12 -5 -&quot;, &quot;-7.0&quot;),<br/>            (&quot;10 5 *&quot;, &quot;50.0&quot;),<br/>            (&quot;10 5 /&quot;, &quot;2.0&quot;),<br/>            (&quot;6 2 *&quot;, &quot;12.0&quot;),<br/>            (&quot;3 5 *&quot;, &quot;15.0&quot;),<br/>            (&quot;12 4 /&quot;, &quot;3.0&quot;),<br/>            (&quot;2 3 + 4 *&quot;, &quot;14.0&quot;),<br/>            (&quot;8 2 / 4 +&quot;, &quot;8.0&quot;),<br/>            (&quot;10 2 + 3 *&quot;, &quot;16.0&quot;),<br/>        ],<br/>    )<br/>    def test_main(self, input_expression, expected_result):<br/>        with patch(&quot;sys.stdin&quot;, StringIO(input_expression)), patch(<br/>            &quot;sys.stdout&quot;, StringIO()<br/>        ) as output:<br/>            runpy.run_path(<br/>                &quot;/Users/borschevskyi/Hillel-Python-Pro/drunk_polish_calculator.py&quot;,<br/>                run_name=&quot;__main__&quot;,<br/>            )<br/>            output.seek(0)<br/>            result = output.read().strip().split(&quot;:&quot;)[-1].strip()<br/>&gt;           assert result == expected_result<br/><span class="error">E           AssertionError: assert &#x27;36.0&#x27; == &#x27;16.0&#x27;</span><br/><span class="error">E             - 16.0</span><br/><span class="error">E             ? ^</span><br/><span class="error">E             + 36.0</span><br/><span class="error">E             ? ^</span><br/><br/>drunk_polish_calculator_test.py:109: AssertionError<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[5 5 +-10.0]</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[10 -3 +-7.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_plus[5-5-10.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -378,7 +369,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[0 0 +-0.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_plus[10--3-7.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -387,7 +378,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[-2 5 +-3.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_plus[0-0-0.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -396,7 +387,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[10 5 --5.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_plus[-2-5-3.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -405,7 +396,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[2 -3 --5.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_plus[1.5-2.5-4]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -414,7 +405,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[-4 7 ---11.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_multiply[5-5-25.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -423,7 +414,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[-12 -5 ---7.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_multiply[2--3--6.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -432,7 +423,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[10 5 *-50.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_multiply[-4-7--28.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -441,7 +432,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[6 2 *-12.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_multiply[-12--5-60.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -450,7 +441,142 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main_option[3 5 *-15.0]</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_multiply[1.5-2.5-3.75]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_divide[10-5-2.0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_divide[2--3--0.6666666666666666]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_divide[-4-7--0.5714285714285714]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_divide[-12--5-2.4]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_op_divide[1.5-2.5-0.6]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[5 5 +-10.0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[10 -3 +-7.0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[0 0 +-0.0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[-2 5 +-3.0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[10 5 --5.0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[-4 7 ---11.0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[-12 -5 ---7.0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[10 5 *-50.0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[6 2 *-12.0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::TestDrunkPolishCalculator::test_main[3 5 *-15.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
