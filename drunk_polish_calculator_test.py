@@ -96,16 +96,14 @@ class TestDrunkPolishCalculator:
             ("10 2 + 3 *", "16.0"),
         ],
     )
-    def test_main(self, input_expression, expected_result):
-        with patch("sys.stdin", StringIO(input_expression)), patch(
-            "sys.stdout", StringIO()
-        ) as output:
+    def test_main(self, input_expression, expected_result, capsys):
+        # when
+        with patch("sys.stdin", StringIO(input_expression)):
             runpy.run_path(
                 "/Users/borschevskyi/Hillel-Python-Pro/drunk_polish_calculator.py",
                 run_name="__main__",
             )
-            output.seek(0)
-            # when
-            result = output.read().strip().split(":")[-1].strip()
+            captured = capsys.readouterr()
+            result = captured.out.strip().split(":")[-1].strip()
             # then
             assert result == expected_result
