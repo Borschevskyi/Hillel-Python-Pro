@@ -100,7 +100,7 @@ class TestDrunkPolishCalculator:
         # when
         with patch("sys.stdin", StringIO(input_expression)):
             runpy.run_path(
-                "/Users/borschevskyi/Hillel-Python-Pro/drunk_polish_calculator.py",
+                "./drunk_polish_calculator.py",
                 run_name="__main__",
             )
             captured = capsys.readouterr()
