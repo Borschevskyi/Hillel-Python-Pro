@@ -28,11 +28,11 @@ class TestDrunkPolishCalculator:
     @pytest.mark.parametrize(
         "x, y, expected",
         [
-            (15, 5, 10.0),
-            (2, -3, 5.0),
-            (-4, 7, -11.0),
-            (-12, -5, -7.0),
-            (1.5, 2.5, -1)
+            (15, 5, -10.0),
+            (2, -3, -5.0),
+            (-4, 7, 11.0),
+            (-12, -5, 7.0),
+            (1.5, 2.5, 1)
         ],
     )
     def test_op_minus(self, x, y, expected):
