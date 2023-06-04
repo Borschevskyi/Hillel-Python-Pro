@@ -91,9 +91,9 @@ class TestDrunkPolishCalculator:
             ("6 2 *", "12.0"),
             ("3 5 *", "15.0"),
             ("12 4 /", "3.0"),
-            ("2 3 + 4 *", "14.0"),
+            ("2 3 + 4 *", "20.0"),
             ("8 2 / 4 +", "8.0"),
-            ("10 2 + 3 *", "16.0"),
+            ("10 2 + 3 *", "36.0"),
         ],
     )
     def test_main(self, input_expression, expected_result, capsys):
