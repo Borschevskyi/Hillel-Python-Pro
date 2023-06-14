@@ -1,6 +1,7 @@
 from flask import Flask, request
 
 from utils import get_currency_exchange_rate, get_pb_exchange_rate
+from db_practice import get_customers, unwrapper
 
 app = Flask(__name__)
 
@@ -25,3 +26,16 @@ def get_pb_rates():
     rate_date = request.args.get("rate_date", default="06.06.2022")
     result = get_pb_exchange_rate(convert_currency, bank, rate_date)
     return result
+
+
+@app.route('/customers')
+def show_customers():
+    """Функция для вывода результата выполнения запроса"""
+    state_name = request.args.get('state_name', default = None)
+    city_name = request.args.get('city_name', default = None)
+    customers = get_customers(state_name, city_name)
+    customer_list = ''
+    for customer in customers:
+        customer_list += f"{customer[0]}\n"
+
+    return customer_list
