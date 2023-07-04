@@ -13,16 +13,16 @@ class CardControllerTestCase(unittest.TestCase):
     def test_set_existing_card(self, mock_repository):
         mock_instance = mock_repository.return_value
         existing_card = Card(
-            "0000000000000001", "01/21", "012", "2021-01-21", str(uuid.uuid4()), 'new'
+            "0000000000000001", "01/21", "012", "2021-01-21", str(uuid.uuid4()), "new"
         )
         mock_instance.get_card_by_pan.return_value = existing_card
         controller = CardController()
-        controller.set(
+        controller.set_card(
             existing_card.pan,
             existing_card.expiration_date,
             existing_card.cvv,
             existing_card.issue_date,
-            existing_card.user_id,
+            existing_card.owner_id,
             existing_card.status,
         )
         mock_instance.update_card.assert_called_once()
@@ -38,7 +38,6 @@ class CardControllerTestCase(unittest.TestCase):
                 "2022-02-22",
                 str(uuid.uuid4()),
                 "active",
-
             ),
             Card(
                 "2222222222222223",
@@ -46,14 +45,14 @@ class CardControllerTestCase(unittest.TestCase):
                 "234",
                 "2023-03-23",
                 str(uuid.uuid4()),
-                'blocked',
+                "blocked",
             ),
         ]
         mock_instance.get_cards.return_value = cards
         controller = CardController()
         serializer = CardSerializer()
         expected_result = [serializer.to_json(card) for card in cards]
-        result = controller.get()
+        result = controller.get_card()
         self.assertEqual(len(result), 2)
         self.assertEqual(result, expected_result)
 
@@ -66,7 +65,7 @@ class CardControllerTestCase(unittest.TestCase):
             "345",
             "2024-04-24",
             str(uuid.uuid4()),
-            'blocked',
+            "blocked",
         )
         mock_instance.get_card_by_pan.return_value = existing_card
         controller = CardController()
@@ -76,13 +75,13 @@ class CardControllerTestCase(unittest.TestCase):
             mock_print.assert_not_called()
 
         mock_instance.update_card.assert_not_called()
-        self.assertEqual(existing_card.status, 'blocked')
+        self.assertEqual(existing_card.status, "blocked")
 
     @patch("card_controller.CardRepository")
     def test_activate_new_card(self, mock_repository):
         mock_instance = mock_repository.return_value
         existing_card = Card(
-            "3333333333333335", "05/25", "555", "2025-05-25", str(uuid.uuid4()), 'new'
+            "3333333333333335", "05/25", "555", "2025-05-25", str(uuid.uuid4()), "new"
         )
         mock_instance.get_card_by_pan.return_value = existing_card
         controller = CardController()
@@ -92,7 +91,7 @@ class CardControllerTestCase(unittest.TestCase):
             mock_print.assert_not_called()
 
         mock_instance.update_card.assert_called_once()
-        self.assertEqual(existing_card.status, 'active')
+        self.assertEqual(existing_card.status, "active")
 
     @patch("card_controller.CardRepository")
     def test_activate_nonexistent_card(self, mock_repository):
@@ -112,13 +111,13 @@ class CardControllerTestCase(unittest.TestCase):
             "456",
             "2025-05-25",
             str(uuid.uuid4()),
-            'active',
+            "active",
         )
         mock_instance.get_card_by_pan.return_value = existing_card
         controller = CardController()
         controller.block_card("4444444444444445")
         mock_instance.update_card.assert_called_once()
-        self.assertEqual(existing_card.status, 'blocked')
+        self.assertEqual(existing_card.status, "blocked")
 
     @patch("card_controller.CardRepository")
     def test_block_nonexistent_card(self, mock_repository):
@@ -129,8 +128,23 @@ class CardControllerTestCase(unittest.TestCase):
         with patch("builtins.print") as mock_print:
             controller.block_card("4444444444444446")
 
-        mock_instance.get_card_by_pan.assert_called_once_with(
-            "4444444444444446")
+        mock_instance.get_card_by_pan.assert_called_once_with("4444444444444446")
+
+    @patch("card_controller.CardRepository")
+    def test_create_card_with_valid_values(self, mock_repository):
+        card = CardController.create_card()
+        assert len(card.pan) == 16  # Проверяем, что пан состоит из 16 символов
+        assert (
+            len(card.expiration_date) == 5
+        )  # Проверяем, что дата истечения состоит из 5 символов
+        assert len(card.cvv) == 3  # Проверяем, что CVV состоит из 3 символов
+        assert (
+            len(card.issue_date) == 10
+        )  # Проверяем, что дата выпуска состоит из 10 символов
+        assert isinstance(
+            card.owner_id, str
+        )  # Проверяем, что идентификатор владельца является целым числом
+        assert card.status == "new"  # Проверяем, что статус карты равен "new"
 
 
 if __name__ == "__main__":

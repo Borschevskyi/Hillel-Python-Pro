@@ -12,7 +12,7 @@ class CardSerializer:
                 "expiration_date": card.expiration_date,
                 "cvv": card.cvv,
                 "issue_date": card.issue_date,
-                "owner_id": card.user_id,
-                "card_status": card.status,
+                "owner_id": card.owner_id,
+                "status": card.status,
             }
         )
