@@ -16,6 +16,7 @@ class Cards(models.Model):
         return [int(digit) for digit in str(number) if digit.isdigit()]
 
     def is_valid(self, card_number: str) -> bool:
+        card = Cards.objects.get(pan = card_number)
         digits = self.digits_on(card_number)
         odd_digits = digits[-1::-2]
         even_digits = digits[-2::-2]
@@ -26,4 +27,3 @@ class Cards(models.Model):
         is_valid = check_sum % 10 == 0
         print(f"Card number: {card_number}, Checksum: {check_sum}, Is Valid: {is_valid}")
         return is_valid
-
