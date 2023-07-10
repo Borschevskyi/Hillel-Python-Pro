@@ -4,6 +4,7 @@ from django.test import TestCase
 from django.urls import reverse
 from model.models import Cards
 
+
 class CardTest(TestCase):
     def test_get(self):
         owner_id = uuid.uuid4()
@@ -54,3 +55,30 @@ class CardTest(TestCase):
         self.assertEqual(card.expiration_date, data["expiration_date"])
         self.assertEqual(card.cvv, data["cvv"])
         self.assertEqual(card.status, data["status"])
+
+    def test_is_valid(self):
+        valid_card = "4441114454441013"
+        card = Cards.objects.create(
+            pan = valid_card,
+            expiration_date = "05/29",
+            cvv = "123",
+            owner_id = str(uuid.uuid4()),
+            status = "new",
+        )
+
+        is_valid = card.is_valid(valid_card)
+        print(f"Card Number: {valid_card}, Is Valid: {is_valid}")
+        self.assertTrue(is_valid)
+
+        invalid_card = "8531462222641434"
+        card = Cards.objects.create(
+            pan = invalid_card,
+            expiration_date = "12/24",
+            cvv = "123",
+            owner_id = str(uuid.uuid4()),
+            status = "new",
+        )
+
+        is_valid = card.is_valid(invalid_card)
+        print(f"Card Number: {invalid_card}, Is Valid: {is_valid}")
+        self.assertFalse(is_valid)

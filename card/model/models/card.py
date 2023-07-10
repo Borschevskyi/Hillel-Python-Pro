@@ -13,15 +13,17 @@ class Cards(models.Model):
     status = models.CharField(max_length=10)
 
     def digits_on(self, number: str) -> list:
-        return [int(digit) for digit in str(number)]
+        return [int(digit) for digit in str(number) if digit.isdigit()]
 
-    def is_valid(self, request: HttpRequest) -> bool:
-        card_number = Cards.objects.get(pan="1234567890123456")
+    def is_valid(self, card_number: str) -> bool:
+        card = Cards.objects.get(pan = card_number)
         digits = self.digits_on(card_number)
         odd_digits = digits[-1::-2]
         even_digits = digits[-2::-2]
-        check_sum = 0
-        check_sum += sum(odd_digits)
-        for even_numbers in even_digits:
-            check_sum += sum(self.digits_on(even_numbers * 2))
-        return check_sum % 10 == 0
+        check_sum = sum(odd_digits)
+        for even_number in even_digits:
+            multiplied_digits = self.digits_on(even_number * 2)
+            check_sum += sum(multiplied_digits)
+        is_valid = check_sum % 10 == 0
+        print(f"Card number: {card_number}, Checksum: {check_sum}, Is Valid: {is_valid}")
+        return is_valid
