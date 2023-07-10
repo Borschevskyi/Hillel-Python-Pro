@@ -65,7 +65,6 @@ class CardTest(TestCase):
             status="new",
         )
 
-        # Call the is_valid method directly
         is_valid = card.is_valid(card.pan)
         self.assertTrue(is_valid)
 
