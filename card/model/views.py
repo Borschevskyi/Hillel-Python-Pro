@@ -1,5 +1,5 @@
 import json
-from django.http import HttpRequest, JsonResponse, HttpResponseRedirect
+from django.http import HttpRequest, JsonResponse, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
@@ -9,34 +9,7 @@ from .models import Cards
 class CardsView(View):
     def get(self, request: HttpRequest):
         cards = Cards.objects.all()
-        json_response = {
-            "cards": [
-                {
-                    "pan": str(card.pan),
-                    "expiration_date": str(card.expiration_date),
-                    "cvv": str(card.cvv),
-                    "owner_id": str(card.owner_id),
-                    "status": str(card.status),
-                }
-                for card in cards
-            ]
-        }
-        if request.headers["accept"] == "application/json":
-            return JsonResponse(json_response)
-        else:
-            context = {
-                "cards": [
-                    {
-                        "pan": card.pan,
-                        "expiration_date": card.expiration_date,
-                        "cvv": card.cvv,
-                        "owner_id": card.owner_id,
-                        "status": card.status,
-                    }
-                    for card in cards
-                ]
-            }
-            return render(request, "cards/cards_list.html", context, "text/html")
+        return render(request, "cards/cards_list.html", {"cards": cards})
 
     def post(self, request: HttpRequest):
         body = json.loads(request.body)
