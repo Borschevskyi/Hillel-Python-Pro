@@ -82,3 +82,28 @@ class CardTest(TestCase):
         is_valid = card.is_valid(invalid_card)
         print(f"Card Number: {invalid_card}, Is Valid: {is_valid}")
         self.assertFalse(is_valid)
+
+
+class CardsPageTest(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        Cards.objects.create(pk=1)
+
+    def test_cards_list_template(self):
+        response = self.client.get(reverse('card'))
+        no_responce = self.client.get("/model/cards")
+        self.assertTemplateUsed(response, "cards/cards_list.html")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(no_responce.status_code, 404)
+        self.assertContains(response, 'Card Pan')
+        self.assertContains(response, 'Cardholder ID')
+
+    def test_create_card_template(self):
+        response = self.client.get(reverse('create_card'))
+        no_responce = self.client.get("/model/card/creat")
+        self.assertTemplateUsed(response, "cards/create_card.html")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(no_responce.status_code, 404)
+        self.assertContains(response, 'pan_card')
+
+
